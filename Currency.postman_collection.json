@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "5e589141-0060-4441-9cba-15f6457c3f26",
+		"name": "Currency",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41273549"
+	},
+	"item": [
+		{
+			"name": "getCurrency",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "from_currency",
+							"value": "CAD",
+							"type": "text"
+						},
+						{
+							"key": "to_currency",
+							"value": "USD",
+							"type": "text"
+						},
+						{
+							"key": "method",
+							"value": "getConversion",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://currency.test/public/call.php",
+					"protocol": "http",
+					"host": [
+						"currency",
+						"test"
+					],
+					"path": [
+						"public",
+						"call.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
