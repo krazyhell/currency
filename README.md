@@ -2,9 +2,8 @@
 
 [![PHP Version](https://img.shields.io/badge/PHP-%3E%3D7.4-blue.svg)](https://php.net/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/API-XE.com-green.svg)](https://xe.com)
 
-Une API PHP simple et efficace pour la conversion de devises basée sur les taux de change de XE.com, avec l'Euro comme devise de référence.
+Une API PHP simple et efficace pour la conversion de devises basée sur les taux de change, avec l'Euro comme devise de référence.
 
 ## 🚀 Fonctionnalités
 
@@ -125,9 +124,9 @@ from_currency=EUR&to_currency=USD&method=getRates
 - `Devises d'entrée et de sortie manquantes` : Paramètres `from_currency` ou `to_currency` manquants
 - `Méthode obligatoire` : Paramètre `method` manquant
 - `Méthode inconnue` : Méthode non supportée
-- `EUR non trouvé dans les taux` : Problème avec les données XE.com
+- `EUR non trouvé dans les taux` : Problème avec les données de l'API
 - `Devise non trouvée dans les taux` : Code de devise invalide
-- `Failed to retrieve data` : Erreur de connexion à XE.com
+- `Failed to retrieve data` : Erreur de connexion à l'API
 - `Failed to parse response` : Erreur de parsing JSON
 
 ## 🧪 Tests avec Postman
@@ -159,7 +158,7 @@ Modifiez les variables dans Postman :
 
 ### Principe de base
 
-1. **Source des données** : XE.com fournit les taux avec USD = 1 comme base
+1. **Source des données** : fournit les taux avec USD = 1 comme base
 2. **Conversion vers EUR** : Le système recalcule tous les taux avec EUR comme référence
 3. **Formule de conversion** :
    ```
@@ -169,7 +168,7 @@ Modifiez les variables dans Postman :
 
 ### Exemple concret
 
-Si XE.com retourne :
+Si l'API retourne :
 - USD = 1
 - EUR = 0.85
 - CAD = 1.25
@@ -193,28 +192,20 @@ Pour convertir CAD → USD : (1/0.68) × 1.176 = 1.729
 
 - **User-Agent** : Simule un navigateur moderne
 - **Referer** : Référence dynamique selon les devises
-- **Authorization** : Token d'authentification pour XE.com
-
-## 🚨 Limitations
-
-- **Source unique** : Dépend de XE.com (point de défaillance unique)
-- **Taux de requête** : Limité par les restrictions de XE.com
-- **Cache simple** : Pas de persistance entre les sessions
-- **Pas d'historique** : Seuls les taux actuels sont disponibles
+- **Authorization** : Token d'authentification 
 
 ## 🔧 Maintenance
 
 ### Surveillance
 
-- Vérifiez régulièrement la disponibilité de XE.com
 - Surveillez les erreurs dans les logs du serveur web
 - Testez périodiquement avec différentes devises
 
 ### Mise à jour
 
-- **Headers HTTP** : Peuvent nécessiter une mise à jour si XE.com change
+- **Headers HTTP** : Peuvent nécessiter une mise à jour si l'API change
 - **Token d'authentification** : À renouveler si expiré
-- **URL API** : Vérifier si XE.com modifie son endpoint
+- **URL API** : Vérifier si l'API modifie son endpoint
 
 ## 📝 Développement
 
@@ -227,7 +218,7 @@ Pour convertir CAD → USD : (1/0.68) × 1.176 = 1.729
 ### Debug
 
 - Activez `error_reporting` en développement
-- Utilisez `var_dump()` pour inspecter les réponses XE.com
+- Utilisez `var_dump()` pour inspecter les réponses
 - Vérifiez les logs du serveur web
 
 ## 📊 Exemple d'utilisation complète
@@ -275,5 +266,3 @@ Si vous trouvez un bug ou avez une suggestion :
 Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 
 ---
-
-**Note** : Ce projet utilise l'API non-officielle de XE.com. Respectez leurs conditions d'utilisation et considérez l'utilisation de leur API officielle pour un usage en production.
